@@ -1,6 +1,11 @@
-_target_: src.datamodules.MNISTDataModule
+_target_: src.datamodules.MetaDataModule
 data_dir: ${paths.data_dir}
-batch_size: 128
-train_val_test_split: [55_000, 5_000, 10_000]
-num_workers: 0
+kshot: 5
+nway: 5
+batch_size: 16
+num_batches: 
+  train: 1600
+  val: 160
+  test: 160
+num_workers: 2
 pin_memory: False
