@@ -70,7 +70,7 @@ def evaluate(cfg: DictConfig) -> Tuple[dict, dict]:
     logger: List[LightningLoggerBase] = utils.instantiate_loggers(cfg.get("logger"))
 
     log.info(f"Instantiating trainer <{cfg.trainer._target_}>")
-    trainer: Trainer = hydra.utils.instantiate(cfg.trainer, logger=logger)
+    trainer: Trainer = hydra.utils.instantiate(cfg.trainer, logger=logger, inference_mode=False)
 
     object_dict = {
         "cfg": cfg,
